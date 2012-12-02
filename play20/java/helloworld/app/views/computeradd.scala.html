@@ -1,0 +1,81 @@
+@(computerForm: Form[Computers.Computer])
+
+@import helper._
+
+@main(title = "The 'helloworld' application") {
+
+<h1>Add a computer</h1>
+
+@form(action = routes.Computers.addComputer, 'method -> "POST" , 'id -> "computerForm") {
+
+@inputText(
+field = computerForm("cpu"),
+args = '_label -> "CPU Type:", 'placeholder -> "cpu"
+)
+
+@inputText(
+field = computerForm("memory"),
+args = '_label -> "Memory", 'placeholder -> "memory"
+)
+
+
+@*********************
+
+@inputText(
+field = computerForm("mainboard"),
+args = '_label -> "Main Board:", 'placeholder -> "main board"
+)
+
+
+
+
+@inputText(
+field = computerForm("harddisk"),
+args = '_label -> "Hard Disk", 'placeholder -> "hard disk"
+)
+
+
+@inputText(
+field = computerForm("monitor"),
+args = '_label -> "Monitor", 'placeholder -> "monitor"
+)
+
+@inputText(
+field = computerForm("keyboard"),
+args = '_label -> "Keyboard", 'placeholder -> "keyboard"
+)
+
+@inputText(
+field = computerForm("mouse"),
+args = '_label -> "Mouse", 'placeholder -> "mouse"
+)
+
+
+*********************@
+
+
+
+
+@inputText(
+field = computerForm("repeat"),
+args = '_label -> "How many times?", 'size -> 3, 'placeholder -> 10
+)
+
+@select(
+field = computerForm("color"),
+options = options(
+"" -> "Default",
+"red" -> "Red",
+"green" -> "Green",
+"blue" -> "Blue"
+),
+args = '_label -> "Choose a color"
+)
+
+<p class="buttons">
+    <input type="submit">
+<p>
+
+    }
+
+    }
