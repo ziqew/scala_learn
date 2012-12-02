@@ -1,0 +1,72 @@
+@(form: Form[Application.Login])
+
+<html>
+<head>
+    <title>My Tasks</title>
+    <link rel="stylesheet" href='@routes.Assets.at("stylesheets/foundation.top-bar.css")'>
+    <link rel="stylesheet" href='@routes.Assets.at("stylesheets/zurb.mega-drop.css")'>
+    <link rel="stylesheet" href='@routes.Assets.at("stylesheets/presentation.css")'>
+
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+</head>
+<body>
+
+
+
+@helper.form(routes.Application.authenticate) {
+
+
+@if(form.hasGlobalErrors) {
+<p class="error">
+    @form.globalError.message
+</p>
+}
+
+@if(flash.contains("success")) {
+<p class="success">
+    @flash.get("success")
+</p>
+}
+
+
+
+
+<div class="row">
+    <section role="main">
+
+    <div class="eight columns">
+        <form>
+            <fieldset>
+                <legend>Login</legend>
+
+                <div class="row">
+                    <div class="five columns">
+
+                        <label for="email">User Name</label>
+                        <input type="email" name="email" id="email" placeholder="Email" value="@form("email").value">
+
+                        <label for="password">password</label>
+                        <input type="password" name="password" id="password" placeholder="Password">
+
+
+
+                    </div>
+
+
+                </div>
+
+
+            </fieldset>
+        </form>
+    </div>
+    </section>
+</div>
+
+}
+
+<p class="note">
+    Try <em>guillaume@@sample.com</em> with <em>secret</em> as password.
+</p>
+
+</body>
+</html>
